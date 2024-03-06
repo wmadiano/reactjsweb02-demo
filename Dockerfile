@@ -1,21 +1,13 @@
-# Use an official Node.js runtime as a parent image
-FROM node:latest
-# FROM alpine:latest
-
-# Set the working directory in the container
+# Build stage
+FROM node:16-alpine as build-stage
 WORKDIR /app
-
-# Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
-
-# Install app dependencies
 RUN npm install
-
-# Copy the rest of your application code to the working directory
 COPY . .
+RUN npm run build
 
-# Expose a port to communicate with the React app
-EXPOSE 5173
-
-# Start your React app
-CMD ["npm", "run", "dev"]
+# Production stage
+FROM nginx:stable-alpine as production-stage
+COPY --from=build-stage /app/dist /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
