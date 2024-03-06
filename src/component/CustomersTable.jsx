@@ -18,7 +18,7 @@ const CustomersTable = () => {
         setCustomers(data.customers);
         setHost(data.host);
       } catch (error) {
-        console.error('There was a problem with the fetch operation:', error);
+        console.error('There was a problem with the fetch operation..:', error);
       }
     };
     fetchData();
