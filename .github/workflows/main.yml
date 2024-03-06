@@ -30,5 +30,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-              wmadiano/reactjsweb02-demo:latest # Adjusted the repository name to match your request
-              wmadiano/reactjsweb02-demo:${{ github.sha }}
+            wmadiano/reactjsweb02-demo:latest
+            wmadiano/reactjsweb02-demo:tagname:${{ github.sha }}
