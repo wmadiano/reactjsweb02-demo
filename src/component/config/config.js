@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://api01-service.default.svc.cluster.local';// process.env.REACT_APP_API_BASE_URL; //|| 'http://api.gresdev.com'; // Replace with your default URL
+const API_BASE_URL = 'http://api01-service:80';// process.env.REACT_APP_API_BASE_URL; //|| 'http://api.gresdev.com'; // Replace with your default URL
 const config = {
   apiBaseUrl: API_BASE_URL,
 };
